@@ -1,12 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { ThemeProvider, createBox, createText } from '@shopify/restyle';
+import theme, { Theme } from "./src/components/Theme";
 
-export default function App() {
+import Card from "./src/components/Card";
+
+const Box = createBox<Theme>();
+const Text = createText<Theme>();
+
+const App = ()=> {
+
+
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ThemeProvider theme={theme}>
+      <Box
+        flex={1}
+        backgroundColor="mainBackground"
+        alignItems="center"
+        justifyContent="center">
+        <Card
+          title={"mxkaske"}
+          subtitle={"my very first blog post"}
+          imgSrc={require("./assets/Avatar.png")}
+          date={"today"}
+        />
+        <StatusBar style="auto" />
+      </Box>
+    </ThemeProvider>
   );
 }
 
@@ -18,3 +39,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
