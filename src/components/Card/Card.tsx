@@ -1,4 +1,3 @@
-// src/components/Card/index.tsx
 import React from "react";
 import { Image, ImageSourcePropType } from "react-native";
 import { Box, Text, useTheme } from "../Theme";

@@ -8,14 +8,36 @@ import {
   useTheme as useReTheme,
 } from "@shopify/restyle";
 
+
+export const palette = {
+  purple: '#5A31F4',
+  orange: '#D96C06',
+  yellow: '#FFC107',
+  green: '#0ECD9D',
+  teal: '#2292A4',
+  white: '#FFF',
+  gray: '#F5EFED',
+  black: '#0F0A0A',
+  darkGray: '#333',
+  lightGray: '#EEE',
+  darkBlue: '#1f3137',
+};
+
 const theme = createTheme({
   colors: {
-    primary: "#2292A4",
-    secondary: "#BDBF09",
-    tertiary: "#D96C06",
-    mainForeground: "#0F0A0A",
-    mainBackground: "white",
-    cardBackground: "#F5EFED",
+
+    primary: palette.purple,
+    secondary: palette.green,
+    tertiary: palette.orange,
+    mainForeground: palette.black,
+    mainBackground: palette.white,
+
+    primaryCardBackground: palette.purple,
+    secondaryCardBackground: palette.white,
+    primaryCardText: palette.white,
+    secondaryCardText: palette.black,
+
+    cardBackground: palette.gray,
   },
   spacing: {
     xs: 2,
@@ -23,6 +45,7 @@ const theme = createTheme({
     m: 8,
     l: 16,
     xl: 24,
+    xxl: 32,
   },
   textVariants: {
     title: {
@@ -43,12 +66,36 @@ const theme = createTheme({
       lineHeight: 20,
       color: "mainForeground",
     },
+    cardVariants: {
+      primary: {
+        backgroundColor: 'primaryCardBackground',
+        shadowOpacity: 0.3,
+      },
+      secondary: {
+        backgroundColor: 'secondaryCardBackground',
+        shadowOpacity: 0.1,
+      },
+    },
   },
   breakpoints: {
     phone: 0,
     tablet: 768,
   },
 });
+
+const darkThemeExtended: Theme = {
+  ...theme,
+  colors: {
+    ...theme.colors,
+    primary: palette.black,
+    secondary: palette.yellow,
+    mainBackground: palette.darkBlue,
+    mainForeground: palette.white,
+    secondaryCardBackground: palette.purple,
+    secondaryCardText: palette.white,
+    cardBackground: palette.teal,
+  },
+};
 
 interface ThemeProviderProps {
   children: ReactNode;
@@ -60,6 +107,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
 
 export type Theme = typeof theme;
 export default theme;
+export const darkTheme = darkThemeExtended;
 export const Box = createBox<Theme>();
 export const Text = createText<Theme>();
 export const useTheme = () => useReTheme<Theme>();

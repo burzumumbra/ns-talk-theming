@@ -1,32 +1,40 @@
+import React, { useState } from "react";
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
-import { ThemeProvider, createBox, createText } from '@shopify/restyle';
-import theme, { Theme } from "./src/components/Theme";
+import { StyleSheet, Switch } from 'react-native';
+import { ThemeProvider } from '@shopify/restyle';
+import { default as theme, darkTheme, Box } from "./src/components/Theme";
 
 import Card from "./src/components/Card";
+import { BoxPrimary, BoxSecundary } from "./src/components/Boxes";
 
-const Box = createBox<Theme>();
-const Text = createText<Theme>();
 
 const App = ()=> {
 
-
+  const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <ThemeProvider theme={theme}>
-      <Box
-        flex={1}
-        backgroundColor="mainBackground"
-        alignItems="center"
-        justifyContent="center">
-        <Card
-          title={"mxkaske"}
-          subtitle={"my very first blog post"}
-          imgSrc={require("./assets/Avatar.png")}
-          date={"today"}
-        />
-        <StatusBar style="auto" />
+    <ThemeProvider theme={darkMode ? darkTheme : theme}>
+      <Box padding="xxl" backgroundColor="mainBackground" flex={1}>
+        <Box marginTop="m">
+          <Switch
+            value={darkMode}
+            onValueChange={(value: boolean) => setDarkMode(value)}
+          />
+        </Box>
+        <BoxPrimary />
+        <BoxSecundary />
+        <Box marginTop="m">
+          <Card
+            title={"mxkaske"}
+            subtitle={"my very first blog post"}
+            imgSrc={require("./assets/Avatar.png")}
+            date={"today"}
+          />
+        </Box>
       </Box>
+        
+
+        <StatusBar style={darkMode ? "light" : "dark"} />
     </ThemeProvider>
   );
 }
