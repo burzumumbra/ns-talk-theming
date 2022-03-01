@@ -21,16 +21,23 @@ export const palette = {
   darkGray: '#333',
   lightGray: '#EEE',
   darkBlue: '#1f3137',
+  cocacola: '#FE001A',
+  pepsiRed: '#C9002B',
+  pepsiBlue: '#004B93',
 };
 
 const theme = createTheme({
   colors: {
+
+    canPrimary: palette.cocacola,
+    canSecondary: palette.white,
 
     primary: palette.purple,
     secondary: palette.green,
     tertiary: palette.orange,
     mainForeground: palette.black,
     mainBackground: palette.white,
+    secondaryBackground: palette.gray,
 
     primaryCardBackground: palette.purple,
     secondaryCardBackground: palette.white,
@@ -87,6 +94,10 @@ const darkThemeExtended: Theme = {
   ...theme,
   colors: {
     ...theme.colors,
+    
+    canPrimary: palette.pepsiBlue,
+    canSecondary: palette.pepsiRed,
+
     primary: palette.black,
     secondary: palette.yellow,
     mainBackground: palette.darkBlue,
