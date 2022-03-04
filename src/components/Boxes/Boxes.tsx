@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text, useTheme } from "../Theme";
+import { Box, Text } from "../Theme";
 
 export const BoxPrimary = () => {
 

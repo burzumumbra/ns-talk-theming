@@ -29,7 +29,7 @@ const App = ()=> {
         </Box>
         <Box marginTop="m">
           <Card
-            title={"mxkaske"}
+            title={"This is"}
             subtitle={"my very first blog post"}
             imgSrc={require("./assets/Avatar.png")}
             date={"today"}

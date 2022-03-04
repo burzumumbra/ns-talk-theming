@@ -28,22 +28,18 @@ export const palette = {
 
 const theme = createTheme({
   colors: {
-
     canPrimary: palette.cocacola,
     canSecondary: palette.white,
-
     primary: palette.purple,
     secondary: palette.green,
     tertiary: palette.orange,
     mainForeground: palette.black,
     mainBackground: palette.white,
     secondaryBackground: palette.gray,
-
     primaryCardBackground: palette.purple,
     secondaryCardBackground: palette.white,
     primaryCardText: palette.white,
     secondaryCardText: palette.black,
-
     cardBackground: palette.gray,
   },
   spacing: {
@@ -56,19 +52,16 @@ const theme = createTheme({
   },
   textVariants: {
     title: {
-      // fontFamily
       fontSize: 24,
       lineHeight: 28,
       color: "primary",
     },
     subtitle: {
-      // fontFamily
       fontSize: 20,
       lineHeight: 24,
       color: "secondary",
     },
     body: {
-      // fontFamily
       fontSize: 18,
       lineHeight: 20,
       color: "mainForeground",

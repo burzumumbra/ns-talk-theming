@@ -2,6 +2,7 @@
   "expo": {
     "name": "ns-talk-theming",
     "slug": "ns-talk-theming",
+    "owner": "ns-bloomteam",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
